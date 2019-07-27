@@ -1,0 +1,69 @@
+﻿@model TestToka.Data.Entities.Auto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="input-group" align="left">
+    <div class="btn btn-default">
+        @Html.ActionLink("Regresar", "Index")
+    </div>
+
+</div>
+@using (Html.BeginForm("Edit", "Auto"))
+{
+<div class="form-horizontal">
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Modelo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Modelo, new { htmlAttributes = new { @class = "form-control", @requiered = "requiered" } })
+            @Html.ValidationMessageFor(model => model.Modelo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Marca, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Marca, new { htmlAttributes = new { @class = "form-control", @requiered = "requiered" } })
+            @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control", @requiered = "requiered" } })
+            @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DescripcionEstatica, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DescripcionEstatica, new { htmlAttributes = new { @class = "form-control", @requiered = "requiered" } })
+            @Html.ValidationMessageFor(model => model.DescripcionEstatica, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Folio, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Folio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Folio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TipoTransmision, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TipoTransmision, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TipoTransmision, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+

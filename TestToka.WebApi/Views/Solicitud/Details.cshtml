@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TestToka.Data.Entities.DetalleSolicitud>
+@{
+    ViewBag.Title = "Details";
+}
+<p>
+    @Html.ActionLink("Añadir detalle", "AddDetail")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auto.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auto.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auto.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auto.TipoTransmision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auto.DescripcionEstatica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auto.Folio)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auto.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auto.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auto.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auto.TipoTransmision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auto.DescripcionEstatica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auto.Folio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+    }
+</table>
+

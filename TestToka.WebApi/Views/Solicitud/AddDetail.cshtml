@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TestToka.Data.Entities.Auto>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "AddDetail";
+}
+
+@using (Html.BeginForm("AddDetail", "Solicitud"))
+{
+    <table class="table">
+        <tr>
+
+            <th>
+                Seleccionar
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoTransmision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionEstatica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Folio)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.HiddenFor(modelItem => item.Id, new { id = 1 })
+                    <input type="checkbox" id="chkSelectAll"  />
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoTransmision)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionEstatica)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Folio)
+                </td>
+            </tr>
+            <tbody>
+                @Html.EditorFor(m => m)
+            </tbody>
+        }
+    </table>
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" value="Enviar" class="btn btn-info" />
+        </div>
+    </div>
+    <script>
+        $("#chkSelectAll").bind("change", function () {
+            $(".chkSelect").prop("checked", $(this).prop("checked"));
+        });
+        $(".chkSelect").bind("change", function () {
+            if (!$(this).prop("checked"))
+                $("#chkSelectAll").prop("checked", false);
+        });
+        $(".alert").hide().fadeIn("slow");
+    </script>
+    
+}
